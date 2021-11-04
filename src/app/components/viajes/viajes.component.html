@@ -1,0 +1,63 @@
+<h1 class="mt-5">Listado Lugares</h1>
+<hr>
+
+<div class="row">
+    <div class="col ">
+        <button type="button" class="btn btn-info" [routerLink]="['/viaje/nuevo']">
+      <i class="fa fa-plus text-right"> Agregar</i>
+    </button>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col  mt-5">
+        <table class=" table table-striped" *ngIf="!this.cargando">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Viaje</th>
+                    <th scope="col">Km.</th>
+                    <th scope="col">Clima</th>
+                    <th scope="col">Visitado</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Lugar of Lugares; let i = index">
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{Lugar.viaje}}</td>
+                    <td>{{Lugar.distancia}}</td>
+                    <td>{{Lugar.clima}}</td>
+                    <td>
+                        <span class="badge bg-success" *ngIf="Lugar.visitado">Visitado</span>
+                        <span class="badge bg-danger" *ngIf="!Lugar.visitado">Aún por Ir</span>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-info btn-responsive  m-2" [routerLink]="['/viaje', Lugar.id]"><i
+                class="fa fa-edit"></i></button>
+                        <button type="button" class="btn btn-danger btn-responsive" (click)="borrar(Lugar, i)"><i
+                class="fa fa-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class=" alert alert-warning text-center m-3" *ngIf="this.Lugares.length === 0">
+    <h4 class="alert headding">No hay registros</h4>
+    <p>
+        <i class="fa fa-exclamation  fa-2x"></i>
+    </p>
+</div>
+
+<div class=" alert alert-info text-center m-3" *ngIf="this.cargando">
+    <h4 class="alert headding">Cargando</h4>
+    <p>
+        <i class="fa fa-spinner fa-spin fa-2x"></i>
+    </p>
+    <p class="mb-0">
+        Espere por favor...
+    </p>
+</div>

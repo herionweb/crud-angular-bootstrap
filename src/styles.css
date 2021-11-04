@@ -1,0 +1,43 @@
+body {
+    min-height: 1000px;
+}
+
+.form-control {
+    width: 100%!important;
+}
+
+
+/* responsive */
+
+@media only screen and (max-width: 450px) {
+    .btn-responsive {
+        /* width: 20px;
+        height: 20px; */
+        width: 25px;
+        height: 27px;
+    }
+    table th {
+        font-size: 11px;
+    }
+    table td {
+        padding-top: 30px!important;
+        font-size: 12px;
+    }
+    table td button {
+        margin: 0px!important;
+        padding: 0px!important;
+        margin-bottom: 5px!important;
+    }
+    table td .btn {
+        /* font-size: 10px!important; */
+        font-size: 18px!important;
+        vertical-align: baseline;
+    }
+    ._ngcontent-hjh-c46 span {
+        padding: 0px!important;
+        margin: 0px!important;
+    }
+    h1 {
+        font-size: 20px;
+    }
+}

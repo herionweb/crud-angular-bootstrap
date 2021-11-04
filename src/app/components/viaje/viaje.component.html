@@ -1,0 +1,42 @@
+<h1 class="mt-5 w-50">Añade un destino</h1>
+<hr class="w-50">
+
+<div class="row ">
+    <div class="col">
+        <button type="button" class="btn btn-danger" [routerLink]="['/viajes']">
+      <i class="fa fa-arrow-left"> Ver Todo</i>
+    </button>
+    </div>
+</div>
+
+
+<form class="mt-5 form-group form-css" (ngSubmit)="guardar(f)" #f="ngForm">
+    <div class="mb-3 ">
+        <label class="form-label  fw-bold">Id-FirebaseL</label>
+        <input type="text " class="form-control " name="id" disabled [(ngModel)]="Lugar.id">
+        <span><small class=" text-muted ">Este campo es autogenerado</small></span>
+    </div>
+    <div class=" mb-3 ">
+        <label class=" form-label fw-bold ">Viaje</label>
+        <input type=" text " class=" form-control " placeholder=" Introduce tu viaje tan esperado... " name=" viaje " [(ngModel)]=" Lugar.viaje " required>
+        <span><small>Los datos introducidos no son válidos</small></span>
+    </div>
+    <div class=" mb-3 ">
+        <label class=" form-label fw-bold ">Distancia</label>
+        <input type=" text " class=" form-control " placeholder=" En kilometros " name=" distancia " [(ngModel)]=" Lugar.distancia " required>
+        <span><small>Los datos introducidos no son válidos</small></span>
+    </div>
+    <div class=" mb-3 ">
+        <label class=" form-label fw-bold ">Clima</label>
+        <input type=" text " class=" form-control " placeholder=" Temporal en la zona " name=" clima " [(ngModel)]=" Lugar.clima " required>
+        <span><small>Los datos introducidos no son válidos</small></span>
+    </div>
+    <div class=" col ">
+        <button type=" button " class=" btn btn-outline-primary form-control w-50 visitar-responsive" *ngIf=" Lugar.visitado " (click)=" Lugar.visitado=false ">Visitado</button>
+        <button type=" button " class=" btn btn-outline-danger form-control w-50  visitar-responsive" *ngIf=" !Lugar.visitado " (click)=" Lugar.visitado=true ">Aún no</button>
+    </div>
+    <div class=" col text-center guardar-responsive-div">
+        <button type=" submit " class=" btn btn-success mt-3 form-control guardar-responsive"><i class=" fa fa-save "></i>
+      Guardar</button>
+    </div>
+</form>
